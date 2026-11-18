@@ -13,7 +13,8 @@ file.copy(c("output/stress_latest.csv", "output/ratios_panel.csv"), "app/data/",
 
 # 3. Export the app as a static website into docs/ (GitHub Pages serves this folder)
 #    First time only: install.packages(c("shinylive", "httpuv"))
-shinylive::export(appdir = "app", destdir = "docs")
+shinylive::export(appdir = "app", destdir = "docs",
+                  template_params = list(title = "College Athletics Stress Test | Denver Slifka"))
 
 # 4. Preview it locally before pushing (open the URL it prints; Ctrl+C / Esc to stop)
 httpuv::runStaticServer("docs")
