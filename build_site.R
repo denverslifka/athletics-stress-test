@@ -5,6 +5,7 @@
 
 # 1. Rebuild the ratios from the raw data
 source("athletics_stress_test.R")
+source("eada_prep.R")        # Carson-Newman / South Atlantic Conference tab
 
 # 2. Copy the outputs the app needs into app/data/
 dir.create("app/data", recursive = TRUE, showWarnings = FALSE)

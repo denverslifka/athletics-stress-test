@@ -9,3 +9,6 @@
 # The derived CSVs in app/data/ and output/ are still published.
 data/*.xlsx
 data/*.csv
+
+# Raw EADA download (public, but large): re-download from ope.ed.gov (see eada_prep.R)
+data/eada_2025/
