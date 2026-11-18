@@ -1,0 +1,11 @@
+# RStudio / R session files
+.Rproj.user/
+.RData
+.Rhistory
+.Rapp.history
+.DS_Store
+
+# Raw Knight-Newhouse download: re-download it yourself (see README).
+# The derived CSVs in app/data/ and output/ are still published.
+data/*.xlsx
+data/*.csv
