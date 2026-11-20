@@ -33,10 +33,11 @@ KNAD_PATH        <- "data/Custom_Reporting_Results_Data.xlsx"   # .xlsx or .csv
 OUT_DIR          <- "output"
 REV_SHARE_CAP    <- 21.5e6     # House settlement revenue-sharing cap (FY2026)
 
-# Share of the cap each tier is assumed to pay. These are YOUR assumptions:
-# not every school opted in, and many outside the Power 4 pay well under the cap.
-# Set them from reporting you trust and say so in the write-up.
-REV_SHARE_BY_TIER <- c("Power 4" = 1.00, "Group of 5" = 0.50, "FCS / other" = 0.10)
+# Share of the cap each tier is assumed to pay (2026-27 cap: $21.5M; 2025-26 was $20.5M, +4%/yr).
+#  Power 4 100%: 68 schools reached or came within 5% of the cap in year one (College Sports Commission filings).
+#  Group of 5 40%: AAC schools expected to pay roughly $2M-$15M (Dallas Morning News, July 2025); 40% is near the middle.
+#  FCS / other 10%: 92 FCS schools opted in for 2025-26, but amounts were not reported. Assumption.
+REV_SHARE_BY_TIER <- c("Power 4" = 1.00, "Group of 5" = 0.40, "FCS / other" = 0.10)
 POWER4_CONFS <- c("SEC", "Southeastern", "Big Ten", "Big 12", "ACC", "Atlantic Coast")
 TREND_START_YEAR <- 2014       # window for expense-vs-revenue growth
 TREND_END_YEAR   <- NA         # NA = latest year in the data

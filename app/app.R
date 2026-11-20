@@ -252,7 +252,7 @@ ui <- page_navbar(
       div(div(class = "num", xmul(median(latest$debt_to_revenue[latest$tier == "Power 4"], na.rm = TRUE))),
           div(class = "lab", "median Power 4 facility debt, in years of revenue")),
       div(div(class = "num", "$21.5M"),
-          div(class = "lab", "yearly revenue-sharing cap, starting in FY2026")),
+          div(class = "lab", "this year's revenue-sharing cap per school (2026-27)")),
       div(div(class = "num", textOutput("hero_p4_shock", inline = TRUE)),
           div(class = "lab", "median Power 4 margin without subsidies if the full cap is paid"))
     ),
@@ -307,10 +307,13 @@ ui <- page_navbar(
   nav_panel("Revenue-sharing test", div(class = "page",
     layout_sidebar(
       sidebar = sidebar(width = 290,
-        p(class = "help", "Choose how much of the $21.5M cap each tier pays. These are assumptions, not reported figures."),
+        p(class = "help", "Choose how much of this year's $21.5M cap each tier pays. Defaults and the reasoning behind them:"),
         sliderInput("rs_p4",  "Power 4 pays",     min = 0, max = 100, value = 100, step = 5, post = "%"),
-        sliderInput("rs_g5",  "Group of 5 pays",  min = 0, max = 100, value = 50,  step = 5, post = "%"),
+        p(class = "help", "68 schools paid at or within 5% of the cap in the first year (College Sports Commission filings)."),
+        sliderInput("rs_g5",  "Group of 5 pays",  min = 0, max = 100, value = 40,  step = 5, post = "%"),
+        p(class = "help", "American Athletic Conference schools expected to pay about $2M to $15M. 40% is near the middle."),
         sliderInput("rs_fcs", "FCS / other pays", min = 0, max = 100, value = 10,  step = 5, post = "%"),
+        p(class = "help", "92 FCS schools opted in for 2025-26, but amounts were not reported. This one is an assumption."),
         hr(),
         sliderInput("media_cut", "Media and conference revenue falls by", min = 0, max = 50, value = 0, step = 5, post = "%"),
         sliderInput("donor_cut", "Donations fall by",                     min = 0, max = 50, value = 0, step = 5, post = "%")
@@ -386,7 +389,7 @@ ui <- page_navbar(
     tags$ul(class = "context",
       tags$li("The data is self-reported, and some schools show one-year jumps worth checking before citing."),
       tags$li("Heavily subsidized schools often report revenue equal to expenses, so their growth gap is near zero by construction."),
-      tags$li("Revenue-sharing levels in the test are assumptions. The FY2025 data predates the House settlement."),
+      tags$li("The revenue-sharing cap was $20.5M in 2025-26 and rises about 4% a year; the test uses the 2026-27 cap of $21.5M. Default payment levels are estimates from public reporting (see the test tab), not reported school figures. The FY2025 data predates the House settlement."),
       tags$li("Schools that recently moved to Division I, such as UC San Diego in 2020, have distorted growth figures.")
     ),
     p(class = "footer-note", "Built by Denver Slifka in R and Shiny. Source: Knight-Newhouse College Athletics Database.")
